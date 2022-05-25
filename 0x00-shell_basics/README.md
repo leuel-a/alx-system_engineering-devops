@@ -6,4 +6,5 @@
 5-listfilesdigitonly - This script diplays the current directory contents with user and group IDs numerically and hidden files.
 6-firstdirectory - This script creates a directory named my_first_directory in the /tmp/ directory.
 7-movethatfile - This script moves the file betty from /tmp/ to /tmp/my_first_directory.
+10-back - This script changes the working directory to the previous one.
 

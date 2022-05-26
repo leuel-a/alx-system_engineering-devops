@@ -10,4 +10,5 @@
 9-John_Doe - This script addsd 753 permissions to file hello
 10-mirror_permissions - This script mirrors the permissions of olleh to hello
 11-directories_permissions - This script adds execute permission to all directories in the current working directory
+12-directory_permissions - This script creates a directory with 751 permissions
 

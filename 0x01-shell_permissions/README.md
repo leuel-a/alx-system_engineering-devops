@@ -2,4 +2,5 @@
 1-who_am_i - This script prints the effective user name of the current user
 2-groups - This script prints the groups the current user is part of
 3-new_owner - This script the owner of file hello to user betty
+4-empty - This creates an empty file named hello
 

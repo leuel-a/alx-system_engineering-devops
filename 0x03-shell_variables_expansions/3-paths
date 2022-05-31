@@ -1,2 +1,2 @@
 #!/bin/bash
-printenv PATH | grep -F -o : | { OUT=$(wc -l);LIST=$(($OUT + 1 ));echo "$LIST"; }
+printenv PATH | grep -F -o : | wc 

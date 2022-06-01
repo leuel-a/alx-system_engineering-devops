@@ -1,2 +1,2 @@
 #!/bin/bash
-cat list | sort | uniq -c | grep -e '^\s.*1\s' | rev | cut -d' ' -f 1 | rev
+cat list | sort | uniq -u

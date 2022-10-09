@@ -108,4 +108,10 @@
 		--> seq --separator=" " (the -s option is preferable just because it is cleaner)
 
 23. This challenge has text files (with a .txt extension) that contain the phrase "challenges are difficult". Delete this phrase from all text files recursively.
-	Note that some files are in subdirectories so you will need to search for them.	
+	Note that some files are in subdirectories so you will need to search for them.
+
+	--> find . -name "*.txt" -exec sed -i 's/challenges are difficult//g' {} \;
+
+24. The file sum-me.txt has a list of numbers, one per line. Print the sum of these numbers.
+
+	--> cat sum-me.txt | xargs | sed -e 's/\ /+/g' | bc 

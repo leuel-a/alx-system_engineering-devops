@@ -1,3 +1,7 @@
+===================================================================================================================================
+					COMMAND LINE FOR THE WIN CHALLENGE
+===================================================================================================================================
+
 1. Your first challenge is to print "hello world" on the terminal in a single command.
 	Hint: There are many ways to print text on the command line, one way is with the 'echo' command. Try it below and good luck!
 
@@ -77,4 +81,31 @@
 
 17.Extract all IP addresses from files that start with "access.log" printing one IP address per line.
 
-	--> find . -name "access.log*" -exec grep -Eo "[0, 9]{1, 3}\.[0, 9]{1, 3}\.[0, 9]{1, 3}\.[0, 9]{1, 3}" {} \; 
+	--> find . -name "access.log*" -exec grep -Eo "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" {} \;
+
+18. Count the number of files in the current working directory. Print the number of files as a single integer.
+
+	--> ls -l | wc -l
+
+19. Print the contents of access.log sorted.
+
+	--> sort access.log
+
+20. Print the number of lines in access.log that contain the string "GET".
+
+	--> cat access.log | grep "GET" | wc -l
+
+21. The file split-me.txt contains a list of numbers separated by a ; character.
+	Split the numbers on the ; character, one number per line.
+
+	--> cat split-me.txt | tr ';' '\n'
+
+22. Print the numbers 1 to 100 separated by spaces.
+
+	--> seq -s " " 100
+	
+	Tips: By default the separator is set to '\n', but you can specify what  kind of separator you want with the -s option or the following method
+		--> seq --separator=" " (the -s option is preferable just because it is cleaner)
+
+23. This challenge has text files (with a .txt extension) that contain the phrase "challenges are difficult". Delete this phrase from all text files recursively.
+	Note that some files are in subdirectories so you will need to search for them.	

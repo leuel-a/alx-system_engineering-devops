@@ -114,4 +114,8 @@
 
 24. The file sum-me.txt has a list of numbers, one per line. Print the sum of these numbers.
 
-	--> cat sum-me.txt | xargs | sed -e 's/\ /+/g' | bc 
+	--> cat sum-me.txt | xargs | sed -e 's/\ /+/g' | bc
+
+25. Print all files in the current directory recursively without the leading directory path.
+
+	--> find . -type f -printf "%f\n" 

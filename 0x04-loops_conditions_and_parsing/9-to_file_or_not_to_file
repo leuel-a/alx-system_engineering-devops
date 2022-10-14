@@ -1,35 +1,30 @@
 #!/usr/bin/env bash
-# alx school file checker
+# This script that gives you information about the school file.
+# 
+# Description:
+# 	This script checks if the file exists and print:
+# 		--> If the file exists, print "school file exists"
+# 		--> If the file does not exist, print "school file does not exist"
+# 	If the file exists, print:
+# 		--> if the file is empty: school file is empty
+# 		--> if the file is not empty: school file is not empty
+# 		--> if the file is a regular file: school is a regular file
+# 		--> if the file is not a regular file: (nothing)
 
-file="school"
+FILE="school"
 
-# checks if file exists
-if [ -e "$file" ]; then
+if [ -e "$FILE" ]; then
+	echo "school file exists"
 
-  echo "school file exists"
-
-  # checks if file is empty
-  if [ ! -s "$file" ]; then
-    echo "school file is empty"
-
-    # checks if file is a regular file
-    if [ -f "$file" ]; then
-      echo "school is a regular file"
-    fi  
-
-  else
-
-    echo "school file is not empty"
-
-    # checks if file is a regular file
-    if [ -f "$file" ]; then
-      echo "school is a regular file"
-    fi  
-  
-  fi
-
+	if [ -s "$FILE" ]; then
+		echo "school file is not empty"
+	else
+		echo "school file is empty"
+	fi
+	
+	if [ -f "$FILE" ]; then
+		echo "school is a regular file"
+	fi
 else
-  
-  echo "school file does not exist"
-
+	echo "school file does not exist"
 fi

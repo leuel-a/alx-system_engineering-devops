@@ -7,9 +7,7 @@
 # 	place is protected by the passcode PASSWORD, more info 
 # 	about the user here: USER ID INFO
 
-FILE="/etc/passwd"
-
-while IFS=':' read -ra fields; do
-	echo "The user ${fields[0]} is part of the ${fields[3]} gang, lives in the ${fields[5]} and rides ${fields[6]}. ${fields[2]}'s place is protected by the passcode ${fields[1]}, more info about the user here: ${fields[4]}"
-done < $FILE
-
+IFS=':'
+while read -r user pass uid gid username_f homedir loginshell; do
+      echo "The user $user is part of the $gid gang, lives in $homedir and rides $loginshell. $uid's place is protected by the passcode $pass, more info about the user here: $username_f"
+done </etc/passwd

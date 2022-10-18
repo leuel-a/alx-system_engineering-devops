@@ -1,31 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-extern char **environ;
+typedef struct listNode* listPointer;
+typedef struct listNode {
+    int data;
+    listPointer link;
+}listNode;
+
+void printList(listNode *first);
+void insert(listNode *first, int data);
 
 /**
- * main - Entry point for my program
- * @argc: this is the argument count
- * @argv: this is the argument vector
+ * main -Entry point for program
  *
- * Return: Always Zero
+ * Return: On success, it returns 0. On error, it returns 1.
  */
 int main(void)
 {
-	int count;
-	char *val;
+	FILE *fp;
+	int n;
+	listNode *first = NULL;
 
-	count = 0;
-	while (environ[count] != NULL)
+	fp = fopen("in.txt", "r");
+	if (fp == NULL)
 	{
-		printf("[%s] :: ", environ[count]);
-		count++;
+		fprintf(stderr, "Error: cannot open file");
+		exit(EXIT_FAILURE);
 	}
 
+	while (fscanf(fp, "%d", &n) == 1)
+	{
+		insert(first, n);
+	}
+
+	printList(first);
+	exit(EXIT_SUCCESS);
+}
+
+void insert(listNode *first, int data)
+{
+	listNode *temp;
+
+	temp = malloc(sizeof(listNode));
+	temp->data = data;
+	temp->link = first;
+	first = temp;
+}
+
+void printList(listNode *first)
+{
+	while (first)
+	{
+		fprintf(stdin, "%d", first->data);
+		first = first->link;
+	}
 	putchar('\n');
-
-	val = getenv("SHELL");
-	printf("\t\t\nCurrent value of the enviroment variable SHELL is: %s\n", val);
-
-	return (0);
 }

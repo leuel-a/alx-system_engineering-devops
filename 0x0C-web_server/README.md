@@ -14,4 +14,4 @@ A good Software Engineer is a [lazy Software Engineer](https://alx-intranet.hbtn
 
 ### Project Tasks
 ###### Mandatory Task
-- [ ] Task 1: Transfer a file to your server
+- [x] Task 1: Transfer a file to your server

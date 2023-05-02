@@ -1,2 +1,0 @@
-#!/bin/bash
-printenv PATH | grep -o -F : | O=$((wc -l)) | echo "This is the list of lines: $O"

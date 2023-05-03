@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# This script is printing "Best School" 10 times,
+# but on the fourth iteration it prints "bad luck"
+# and on the eighth iteration it prints "good luck"
+#
+#
+# Some insight in the matter:
+# 
+# The number 4 (四, pinyin: sì; Cantonese Yale: sei)
+# 	is considered an unlucky number in Chinese 
+#	because it is nearly homophonous to the word "death"
+# 
+# The number 8 (八, pinyin: bā; Cantonese Yale: baat) sounds
+# 	like "發" (pinyin: fā; Cantonese Yale: faat; lit. 'to 
+#	prosper').
+#
+#	The number 8 is viewed as such an auspicious number 
+#	that even being assigned a number with several eights 
+#	is considered very lucky.
+#============================================================
+
+count=1
+
+while [ "$count" -le 10 ]
+do
+	if [ "$count" -eq 4 ]
+	then
+		echo "bad luck"
+	elif [ "$count" -eq 8 ]
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	((count++))
+done

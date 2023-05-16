@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Installs the Nginx web server, and makes it listen to port 80
+# The default page when your curl the localhost will be "Hello, World!"
+
+# Installing the Nginx Web Server
+sudo apt-get update
+sudo apt-get install nginx -y
+
+# Start the nginx server
+sudo service nginx start
+
+# Allow ufw for traffic to come through port 80
+sudo ufw allow "Nginx HTTP"
+
+# Backup the default page served by the Nginx server
+sudo cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.backup 
+
+# Change the default page served when curling the root
+sudo chown -R "$USER:$USER" /var/www
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+# Restarting the Nginx webserver
+sudo service nginx restart

@@ -17,7 +17,7 @@ if __name__ == '__main__':
     user = r.json()[0]
 
     # Now get the task information about the employee
-    payload = {"userId": argv}
+    payload = {"userId": userId}
     r = requests.get('https://jsonplaceholder.typicode.com/todos/', params=payload)
 
     tasks = r.json()

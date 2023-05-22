@@ -4,11 +4,11 @@ for a given employee ID, returns information about his/her todo
 list progress.
 """
 import requests
-from sys import argv
+import sys
 
 if __name__ == '__main__':
     # Get the user id
-    userId = argv[1]
+    userId = sys.argv[1]
 
     # First get the employee information
     payload = {"id": userId}

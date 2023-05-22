@@ -9,18 +9,17 @@ def get_data(userId: str) -> None:
     using the user id provided"""
     payload = {"id": userId}
     r = requests.get('https://jsonplaceholder.typicode.com/users/', params=payload)
-    user = r.json()[0]
+    user = r.json()
 
     payload = {"userId": userId}
     r = requests.get('https://jsonplaceholder.typicode.com/todos/', params=payload)
     tasks = r.json()
 
-    count = 0
-    for task in tasks:
-        if task.get('completed'):
-            count += 1
+    completedTask = [task.get('title') for task in tasks if task.get('completed')]
+    print("Employee {} is done with tasks({}/{}):".format(
+        user.get("name"), len(completedTask), len(tasks)))
+    [print("\t {}".format(c)) for c in completedTask]
 
-    print(f"Employee {user.get('name')} is done with tasks({count}/{len(tasks)}):")
 
 if __name__ == '__main__':
     userId = sys.argv[1]

@@ -23,7 +23,8 @@ def export_all() -> None:
             if task.get('userId') == id:
                 title = task.get('title')
                 completed = task.get('completed')
-                lst.append({"username": uname, "task": title, "completed": completed})
+                lst.append({"username": uname, "task": title,
+                            "completed": completed})
         all[id] = lst
 
     with open("todo_all_employees.json", "w") as fp:

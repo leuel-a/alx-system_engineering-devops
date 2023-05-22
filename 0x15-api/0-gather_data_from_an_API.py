@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """using this REST API,https://jsonplaceholder.typicode.com/,
-for a given employee ID, returns information about his/her TODO
+for a given employee ID, returns information about his/her todo
 list progress.
 """
-from sys import argv
 import requests
+from sys import argv
 
 
 # Get the user id
@@ -25,11 +25,11 @@ tasks = r.json()
 # count the tasks that they completed
 count = 0
 for task in tasks:
-    if task['completed']:
+    if task.get('completed'):
         count += 1
 
-print(f"Employee {user['name']} is done with tasks({count}/{len(tasks)}):")
+print(f"Employee {user.get('name')} is done with tasks({count}/{len(tasks)}):")
 
 for task in tasks:
-    if task['completed']:
+    if task.get('completed'):
         print(f"\t{task['title']}")

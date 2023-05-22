@@ -17,6 +17,8 @@ def get_data(userId: str) -> None:
 
     completedTask = [task.get('title') for task in tasks if task.get('completed')]
     print(f"Employee {user.get('name')} is done with tasks({len(completedTask)}/{len(tasks)}):")
+    for title in completedTask:
+        print(f"\t{title}")
 
 if __name__ == '__main__':
     get_data(sys.argv[1])

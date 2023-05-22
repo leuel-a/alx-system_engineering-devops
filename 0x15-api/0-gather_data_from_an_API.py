@@ -16,10 +16,7 @@ def get_data(userId: str) -> None:
     tasks = r.json()
 
     completedTask = [task.get('title') for task in tasks if task.get('completed')]
-    print("Employee {} is done with tasks({}/{}):".format(
-        user.get("name"), len(completedTask), len(tasks)))
-    [print("\t {}".format(c)) for c in completedTask]
-
+    print(f"Employee {user.get('name')} is done with tasks({len(completedTask)}/{len(tasks)}):")
 
 if __name__ == '__main__':
     get_data(sys.argv[1])

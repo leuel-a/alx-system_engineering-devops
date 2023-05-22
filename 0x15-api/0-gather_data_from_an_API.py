@@ -9,7 +9,7 @@ def get_data(userId: str) -> None:
     using the user id provided"""
     payload = {"id": userId}
     r = requests.get('https://jsonplaceholder.typicode.com/users/', params=payload)
-    user = r.json()
+    user = r.json()[0]
 
     payload = {"userId": userId}
     r = requests.get('https://jsonplaceholder.typicode.com/todos/', params=payload)

@@ -4,12 +4,12 @@ import requests
 import sys
 
 
-# def get_data(userId: str) -> None:
-#     """fetches the data from the 'https://intranet.alxswe.com/rltoken/7cr7aLYdaWAZWBKrBKS12A'
-#     using the user id provided"""
-#     payload = {"id": userId}
-#     r = requests.get('https://jsonplaceholder.typicode.com/users/', params=payload)
-#     user = r.json()[0]
+def get_data(userId: str) -> None:
+    """fetches the data from the 'https://intranet.alxswe.com/rltoken/7cr7aLYdaWAZWBKrBKS12A'
+    using the user id provided"""
+    payload = {"id": userId}
+    r = requests.get('https://jsonplaceholder.typicode.com/users/', params=payload)
+    user = r.json()[0]
 
 #     payload = {"userId": userId}
 #     r = requests.get('https://jsonplaceholder.typicode.com/todos/', params=payload)

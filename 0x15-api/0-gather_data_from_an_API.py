@@ -22,4 +22,4 @@ def get_data(userId: str) -> None:
 
 
 if __name__ == '__main__':
-    userId = sys.argv[1]
+    get_data(sys.argv[1])

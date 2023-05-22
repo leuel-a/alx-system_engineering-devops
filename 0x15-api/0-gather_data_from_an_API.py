@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""Fetches data from a REST API"""
-import requests
-import sys
-
 if __name__ == '__main__':
+    """Fetches data from a REST API"""
+    import requests
+    import sys
     userId = sys.argv[1]
 
     payload = {"id": userId}

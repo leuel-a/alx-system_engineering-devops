@@ -20,10 +20,10 @@ def get_data(userId: str) -> None:
         if task.get('completed'):
             count += 1
 
-#     print(f"Employee {user.get('name')} is done with tasks({count}/{len(tasks)}):")
-#     for task in tasks:
-#         if task.get('completed'):
-#             print(f"\t{task['title']}")
+    print(f"Employee {user.get('name')} is done with tasks({count}/{len(tasks)}):")
+    for task in tasks:
+        if task.get('completed'):
+            print(f"\t{task['title']}")
 
 
 if __name__ == '__main__':

@@ -20,11 +20,7 @@ def get_data(userId: str) -> None:
         if task.get('completed'):
             count += 1
 
-    # print("Employee {} is done with tasks({}/{}):".format(user.get('name'), count, len(tasks)))
-    # for task in tasks:
-    #     if task.get('completed'):
-    #         print(f"\t{task['title']}")
-
+    print(f"Employee {user.get('name')} is done with tasks({count}/{len(tasks)}):")
 
 if __name__ == '__main__':
     userId = sys.argv[1]

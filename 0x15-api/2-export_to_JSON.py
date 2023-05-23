@@ -1,34 +1,35 @@
 #!/usr/bin/python3
-"""fetches data and exports it to a json file"""
+"""fetches data from a REST API"""
 import json
 import sys
 import requests
 
 
-def export_JSON(userId: str) -> None:
-    """exports all the tasks that are owned by the specified employee
-    """
+user_url = "https://jsonplaceholder.typicode.com/users/"
+todos_url = "https://jsonplaceholder.typicode.com/todos/"
+
+
+def export_user_to_json(userId: str) -> None:
+    """exports the userId info to JSON file"""
     payload = {"id": userId}
-    r = requests.get('https://jsonplaceholder.typicode.com/users/',
-                     params=payload)
+    r = requests.get(user_url, params=payload)
     user = r.json()[0]
 
+    uname = user.get('username')
+
     payload = {"userId": userId}
-    r = requests.get('https://jsonplaceholder.typicode.com/todos/',
-                     params=payload)
+    r = requests.get(todos_url, params=payload)
     tasks = r.json()
 
-    userName = user.get('username')
-    lst = []
-    for task in tasks:
-        lst.append({"title": task.get('title'), "completed":
-                    task.get('completed'), "username": userName})
-    json_data = {userId: lst}
+    data = []
+    for t in tasks:
+        data.append({"task": t.get('title'), "completed":
+                     t.get('completed'), "username": uname})
 
-    file_name = userId + ".json"
-    with open(file_name, "w") as fp:
-        json.dump(json_data, fp)
+    filename = userId + ".json"
+    with open(filename, "w", encoding="utf-8") as fp:
+        json.dump({userId: data}, fp)
 
 
 if __name__ == '__main__':
-    export_JSON(sys.argv[1])
+    export_user_to_json(sys.argv[1])

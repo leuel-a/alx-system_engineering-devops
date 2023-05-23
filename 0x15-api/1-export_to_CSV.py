@@ -28,7 +28,7 @@ def export_data(userId: str) -> None:
 
     filePath = userId + ".csv"
     with open(filePath, 'w') as fp:
-        csv_writer = csv.writer(fp)
+        csv_writer = csv.writer(fp, quoting=csv.QUOTE_ALL)
 
         for data in csv_data:
             csv_writer.writerow(data)

@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """fetches data from a REST API and exports it to a JSON file"""
 import json
-import sys
 import requests
 
 user_url = "https://jsonplaceholder.typicode.com/users"

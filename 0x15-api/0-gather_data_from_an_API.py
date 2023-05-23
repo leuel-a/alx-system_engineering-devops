@@ -5,20 +5,22 @@ import sys
 
 
 def get_data(userId: str) -> None:
-    """fetches the data from the 'https://intranet.alxswe.com/rltoken/7cr7aLYdaWAZWBKrBKS12A'
-    using the user id provided"""
+    """fetches the data from the using the user id provided"""
     payload = {"id": userId}
-    r = requests.get('https://jsonplaceholder.typicode.com/users/', params=payload)
+    url = "https://jsonplaceholder.typicode.com/"
+    r = requests.get(url+"users/", params=payload)
     user = r.json()[0]
 
     payload = {"userId": userId}
-    r = requests.get('https://jsonplaceholder.typicode.com/todos/', params=payload)
+    r = requests.get(url+"todos/", params=payload)
     tasks = r.json()
 
-    completedTask = [task.get('title') for task in tasks if task.get('completed')]
-    print(f"Employee {user.get('name')} is done with tasks({len(completedTask)}/{len(tasks)}):")
+    completedTask = [t.get('title') for t in tasks if t.get('completed')]
+    uname, n_comp = user.get('name'), len(completedTask)
+    print(f"Employee {uname} is done with tasks({n_comp}/{len(tasks)}):")
     for title in completedTask:
-        print(f"\t{title}")
+        print(f"\t {title}")
+
 
 if __name__ == '__main__':
     get_data(sys.argv[1])

@@ -4,31 +4,35 @@ import json
 import sys
 import requests
 
+user_url = "https://jsonplaceholder.typicode.com/users"
+todos_url = "https://jsonplaceholder.typicode.com/todos"
+
 
 def export_all() -> None:
     """exports all the user information to a json file"""
-    r = requests.get('https://jsonplaceholder.typicode.com/users/')
+
+    r = requests.get(user_url)
     users = r.json()
 
-    r = requests.get('https://jsonplaceholder.typicode.com/todos/')
-    tasks = r.json()
+    r = requests.get(todos_url)
+    todos = r.json()
 
-    all = {}
+    all_u = {}
     for user in users:
-        id = user.get('id')
+        uId = user.get('id')
         uname = user.get('username')
 
         lst = []
-        for task in tasks:
-            if task.get('userId') == id:
-                title = task.get('title')
-                completed = task.get('completed')
+        for t in todos:
+            if t.get('userId') == uId:
+                title = t.get('title')
+                completed = t.get('completed')
                 lst.append({"username": uname, "task": title,
                             "completed": completed})
-        all[id] = lst
+        all_u[uId] = lst
 
     with open("todo_all_employees.json", "w") as fp:
-        json.dump(all, fp)
+        json.dump(all_u, fp)
 
 
 if __name__ == '__main__':
